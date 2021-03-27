@@ -39,22 +39,22 @@ public class Main {
 
     public static void main(String[] args) {
         int[] arr;
-        arr = generateArray(8);
+        arr = generateArray(10);
         execute(0, arr);
         execute(1, arr);
         execute(2, arr);
         System.out.println("");
-        arr = generateArray(32);
+        arr = generateArray(100);
         execute(0, arr);
         execute(1, arr);
         execute(2, arr);
         System.out.println("");
-        arr = generateArray(128);
+        arr = generateArray(1000);
         execute(0, arr);
         execute(1, arr);
         execute(2, arr);
         System.out.println("");
-        arr = generateArray(512);
+        arr = generateArray(10000);
         execute(0, arr);
         execute(1, arr);
         execute(2, arr);

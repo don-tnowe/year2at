@@ -1,11 +1,11 @@
 package com.company;
 
-import java.util.Arrays;
-
 public class Lab2 {
 
-    int countComs = 0;
-    int countSwaps = 0;
+    private final int sortCountExp = 10;
+
+    private int countComs = 0;
+    private int countSwaps = 0;
 
     private void swap(int[] arr, int first, int second)
     {
@@ -21,7 +21,8 @@ public class Lab2 {
         int[] arr = arrSource.clone();
         int n = arr.length;
         long startTime = System.nanoTime();
-        int min = 0;
+
+        int min;
         for (int i = 0; i < n; ++i) {
             min = i;
             for (int j = i + 1; j < n; ++j) {
@@ -32,6 +33,7 @@ public class Lab2 {
             }
             swap(arr, i, min);
         }
+
         Main.printTime(startTime);
         System.out.println("Comparisons:" + countComs + " Swaps: " + countSwaps);
         return arr;
@@ -40,6 +42,7 @@ public class Lab2 {
     public int[] sortHeapsort(int[] arrSource) {
         countComs = 0;
         countSwaps = 0;
+
         int[] arr = arrSource.clone();
         int n = arr.length;
         long startTime = System.nanoTime();
@@ -82,17 +85,15 @@ public class Lab2 {
         int[] arr = arrSource.clone();
         long startTime = System.nanoTime();
 
-        int largestIdx = 0;
         int largest = arr[0];
         for (int i = 1; i < n; ++i) {
             if (arr[i] > largest) {
                 largest = arr[i];
-                largestIdx = i;
             }
             countComs ++;
         }
 
-        for (int i = 1; largest / i > 0; i *= 10) {
+        for (int i = 1; largest / i > 0; i *= sortCountExp) {
             arr = sortDigitCount(arr, i);
         }
 
@@ -106,18 +107,18 @@ public class Lab2 {
         int n = arrSource.length;
         int[] arr = arrSource.clone();
 
-        int[] count = new int[10];
+        int[] count = new int[sortCountExp];
 
         for (int i = 0; i < n; i++)
-            count[(arr[i] / digitExp) % 10]++;
+            count[(arr[i] / digitExp) % sortCountExp]++;
 
-        for (int i = 1; i < 10; i++) {
+        for (int i = 1; i < sortCountExp; i++) {
             count[i] += count[i - 1];
         }
 
         for (int i = n - 1; i >= 0; i--) {
-            arr[count[(arrSource[i] / digitExp) % 10] - 1] = arrSource[i];
-            count[(arrSource[i] / digitExp) % 10]--;
+            arr[count[(arrSource[i] / digitExp) % sortCountExp] - 1] = arrSource[i];
+            count[(arrSource[i] / digitExp) % sortCountExp]--;
         }
         return arr;
     }
