@@ -21,7 +21,7 @@ public class Lab3 {
         Scanner scanner = new Scanner(inputStream);
         while(scanner.hasNextLine())
         {
-            wordList.add(scanner.nextLine().split("[ .,\\-()\\[\\]:]+"));
+            wordList.add(scanner.nextLine().split("[ ,.…\\-()\\[\\]:]+"));
             wordList.add("\n");
         }
         scanner.close();

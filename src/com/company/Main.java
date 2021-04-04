@@ -26,6 +26,7 @@ public class Main {
 
     public static void main(String[] args) {
         executeL3("iofiles/Text1.txt");
+        executeL3("iofiles/Text1or.txt");
     }
 
     public static void executeL1(int alg, int param) {
@@ -56,6 +57,9 @@ public class Main {
     public static void executeL3(String filename) {
         Lab3 algs = new Lab3();
         System.out.println("File: " + filename);
+        algs.readFile(filename);
+        algs.print();
+        System.out.println("File: " + filename + " With 'or' printed between words");
         algs.readFile(filename);
         algs.removeOrPlaceConnector("or");
         algs.print();

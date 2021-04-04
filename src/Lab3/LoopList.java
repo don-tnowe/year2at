@@ -47,14 +47,14 @@ public class LoopList <T>{
         return curItem.value;
     }
 
+    public T get()
+    {
+        return cur.value;
+    }
+
     public void resetCur()
     {
         cur = null;
-    }
-
-    public T getCurrent()
-    {
-        return cur.value;
     }
 
     public T next()
