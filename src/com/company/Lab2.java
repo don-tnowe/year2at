@@ -2,12 +2,12 @@ package com.company;
 
 public class Lab2 {
 
-    private final int sortCountExp = 10;
+    private static final int sortCountExp = 10;
 
-    private int countComs = 0;
-    private int countSwaps = 0;
+    private static int countComs = 0;
+    private static int countSwaps = 0;
 
-    private void swap(int[] arr, int first, int second)
+    private static void swap(int[] arr, int first, int second)
     {
         int swapBuffer = arr[first];
         arr[first] = arr[second];
@@ -15,7 +15,7 @@ public class Lab2 {
         countSwaps++;
     }
 
-    public int[] sortSelection(int[] arrSource) {
+    public static int[] sortSelection(int[] arrSource) {
         countComs = 0;
         countSwaps = 0;
         int[] arr = arrSource.clone();
@@ -39,7 +39,7 @@ public class Lab2 {
         return arr;
     }
 
-    public int[] sortHeapsort(int[] arrSource) {
+    public static int[] sortHeapsort(int[] arrSource) {
         countComs = 0;
         countSwaps = 0;
 
@@ -61,7 +61,7 @@ public class Lab2 {
         return arr;
     }
 
-    private void heapsortHeapify(int[] arr, int unsorted, int root) {
+    private static void heapsortHeapify(int[] arr, int unsorted, int root) {
         int largest = root;
         int l = 2 * root + 1;
         int r = 2 * root + 2;
@@ -77,7 +77,7 @@ public class Lab2 {
         countComs += 3;
     }
 
-    public int[] sortRadix(int[] arrSource) {
+    public static int[] sortRadix(int[] arrSource) {
         countComs = 0;
         countSwaps = 0;
 
@@ -102,7 +102,7 @@ public class Lab2 {
         return arr;
     }
 
-    public int[] sortDigitCount(int[] arrSource, int digitExp)
+    public static int[] sortDigitCount(int[] arrSource, int digitExp)
     {
         int n = arrSource.length;
         int[] arr = arrSource.clone();

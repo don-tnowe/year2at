@@ -1,5 +1,4 @@
 package com.company;
-import java.math.*;
 import java.util.Random;
 
 public class Main {
@@ -25,8 +24,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        executeL3("iofiles/Text1.txt");
-        executeL3("iofiles/Text1or.txt");
+        executeCGW();
     }
 
     public static void executeL1(int alg, int param) {
@@ -42,26 +40,40 @@ public class Main {
     }
 
     public static void executeL2(String alg, int[] param0) {
-        Lab2 algs = new Lab2();
         System.out.println("Algorithm: " + alg + ", array = " + arrayToString(param0));
         int[] result;
         switch (alg) {
-            case "sortSelection" -> result = algs.sortSelection(param0);
-            case "sortHeapsort" -> result = algs.sortHeapsort(param0);
-            case "sortRadix" -> result = algs.sortRadix(param0);
+            case "sortSelection" -> result = Lab2.sortSelection(param0);
+            case "sortHeapsort" -> result = Lab2.sortHeapsort(param0);
+            case "sortRadix" -> result = Lab2.sortRadix(param0);
             default -> throw new IllegalStateException("Unexpected value: " + alg);
         }
         System.out.println(arrayToString(result));
     }
 
     public static void executeL3(String filename) {
-        Lab3 algs = new Lab3();
         System.out.println("File: " + filename);
-        algs.readFile(filename);
-        algs.print();
+        Lab3.readFile(filename);
+        Lab3.print();
         System.out.println("File: " + filename + " With 'or' printed between words");
-        algs.readFile(filename);
-        algs.removeOrPlaceConnector("or");
-        algs.print();
+        Lab3.readFile(filename);
+        Lab3.removeOrPlaceConnector("or");
+        Lab3.print();
+    }
+
+    public static void executeModule() {
+        Module1.execute(200000);
+    }
+
+    public static void executeL4() {
+        Lab4.execute();
+    }
+
+    public static void executeL5() {
+        Lab5.execute();
+    }
+
+    public static void executeCGW() {
+        CGW.execute();
     }
 }

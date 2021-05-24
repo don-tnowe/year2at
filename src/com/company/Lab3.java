@@ -4,10 +4,10 @@ import java.util.Scanner;
 import Lab3.*;
 
 public class Lab3 {
-    public LoopList<String> wordList = new LoopList<>();
-    public int lineLength = 90;
+    public static LoopList<String> wordList = new LoopList<>();
+    public static int lineLength = 90;
 
-    public void readFile(String filename)
+    public static void readFile(String filename)
     {
         FileInputStream inputStream = null;
         try
@@ -27,7 +27,7 @@ public class Lab3 {
         scanner.close();
     }
 
-    public void removeOrPlaceConnector(String connector)
+    public static void removeOrPlaceConnector(String connector)
     {
         if (wordList.removeAll(connector) != 0)
             return;
@@ -40,7 +40,7 @@ public class Lab3 {
         }
     }
 
-    public void print()
+    public static void print()
     {
         StringBuilder curLine = new StringBuilder();
         wordList.resetCur();
